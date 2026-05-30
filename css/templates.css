@@ -1,0 +1,113 @@
+/* ── TEMPLATE SELECTOR ── */
+#page-templates {
+  padding-top: 68px;
+  min-height: 100vh;
+}
+
+.templates-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.templates-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.templates-header h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.templates-header h1 i { color: var(--accent); margin-right: 8px; }
+.templates-header p { color: var(--text2); font-size: 0.95rem; }
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.template-card {
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  animation: fadeInUp 0.4s ease both;
+}
+
+.template-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.template-thumbnail {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+  background: #f5f5f5;
+}
+
+.template-thumbnail iframe {
+  width: 210%;
+  height: 210%;
+  border: none;
+  transform: scale(0.475);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.template-info {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.template-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.template-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.05em;
+}
+.badge-modern { background: rgba(108,99,255,0.15); color: #6c63ff; }
+.badge-classic { background: rgba(232,197,71,0.15); color: var(--accent); }
+.badge-creative { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+.badge-minimal { background: rgba(255,255,255,0.08); color: var(--text2); }
+
+.template-select-btn {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 0 16px 16px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.template-card:hover .template-select-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}

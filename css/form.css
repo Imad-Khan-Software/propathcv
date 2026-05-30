@@ -1,0 +1,270 @@
+/* ── CV FORM PAGE ── */
+#page-form {
+  padding-top: 68px;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.form-page-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-header h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.form-header h1 i { color: var(--accent); margin-right: 8px; }
+
+.form-header p { color: var(--text2); font-size: 0.95rem; }
+
+/* Progress bar */
+.form-progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.progress-step span {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.progress-step.active { color: var(--accent); }
+.progress-step.active span {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.progress-step.completed span {
+  background: rgba(232,197,71,0.15);
+  border-color: rgba(232,197,71,0.4);
+  color: var(--accent);
+}
+
+.progress-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin: 0 8px;
+}
+
+/* Form Steps */
+.form-step { display: none; animation: fadeInUp 0.4s ease; }
+.form-step.active { display: block; }
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.step-title i { color: var(--accent); }
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cv-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.cv-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text3);
+}
+.cv-field label small {
+  color: var(--text2);
+  font-weight: 400;
+  font-size: 0.78rem;
+}
+
+.cv-field input,
+.cv-field textarea,
+.cv-field select {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  resize: vertical;
+  width: 100%;
+}
+.cv-field input:focus,
+.cv-field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232,197,71,0.08);
+}
+.cv-field input::placeholder,
+.cv-field textarea::placeholder { color: var(--text2); opacity: 0.5; }
+
+/* Experience / Education entries */
+.exp-entry, .edu-entry {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+  position: relative;
+  animation: fadeInUp 0.3s ease;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.entry-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text3);
+}
+
+.btn-remove {
+  background: rgba(255,107,107,0.1);
+  border: 1px solid rgba(255,107,107,0.2);
+  color: #ff6b6b;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+.btn-remove:hover { background: rgba(255,107,107,0.2); }
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px dashed rgba(232,197,71,0.3);
+  color: var(--accent);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: var(--transition);
+  margin-bottom: 32px;
+}
+.btn-add:hover {
+  background: rgba(232,197,71,0.05);
+  border-color: rgba(232,197,71,0.6);
+}
+
+/* Step navigation */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-prev {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-prev:hover { border-color: var(--text2); color: var(--text); }
+
+.btn-next {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-next:hover {
+  background: rgba(232,197,71,0.1);
+  border-color: rgba(232,197,71,0.3);
+  color: var(--accent);
+}
+
+.btn-build {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px !important;
+  font-size: 1rem !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 24px rgba(232,197,71,0.25);
+}
+.btn-build:hover {
+  box-shadow: 0 8px 32px rgba(232,197,71,0.35);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .form-grid-2 { grid-template-columns: 1fr; }
+  .form-page-wrapper { padding: 32px 16px 60px; }
+  .form-progress { gap: 4px; }
+  .progress-step { font-size: 0.72rem; gap: 4px; }
+}

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVCraft – Professional CV Maker | Build Your Perfect Resume Online</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="CVCraft is a free online CV and resume builder. Choose from stunning templates, fill in your details, and download a professional CV in minutes. No design skills needed." />
+  <meta name="keywords" content="CV maker, resume builder, free CV creator, professional resume, CV templates, online resume maker, job application, career tools, CV download, resume design" />
+  <meta name="author" content="CVCraft" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0f1117" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CVCraft – Build a Professional CV in Minutes" />
+  <meta property="og:description" content="Free online CV maker with beautiful templates. Sign up, fill in your info, pick a template, and download your CV instantly." />
+  <meta property="og:url" content="https://cvcraft.app" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CVCraft – Free Online CV Maker" />
+  <meta name="twitter:description" content="Create a stunning, professional CV in minutes with CVCraft. Choose templates, fill in your details, and download." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://cvcraft.app" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- html2pdf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/form.css" />
+  <link rel="stylesheet" href="css/templates.css" />
+  <link rel="stylesheet" href="css/preview.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-brand" onclick="showPage('home')">
+      <span class="brand-icon"><i class="fas fa-file-alt"></i></span>
+      CV<span>Craft</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+    </div>
+    <div class="nav-auth" id="navAuth">
+      <button class="btn-outline" onclick="showPage('login')">Sign In</button>
+      <button class="btn-primary" onclick="showPage('register')">Get Started</button>
+    </div>
+    <div class="nav-user hidden" id="navUser">
+      <span class="user-greeting" id="userGreeting"></span>
+      <button class="btn-outline" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- ── HOME PAGE ── -->
+  <main id="page-home" class="page active">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">✦ 100% Free • No Credit Card</div>
+      <h1 class="hero-title">
+        Build a <em>Stunning</em><br/>CV in Minutes
+      </h1>
+      <p class="hero-sub">
+        Choose from professionally designed templates, fill in your details,
+        and download a pixel-perfect CV that gets you hired.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-hero" onclick="showPage('register')">
+          Create My CV <i class="fas fa-arrow-right"></i>
+        </button>
+        <button class="btn-hero-ghost" onclick="scrollTo('how-it-works')">
+          See How It Works
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>50K+</strong><span>CVs Created</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><strong>12</strong><span>Templates</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><strong>Free</strong><span>Forever</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="cv-card cv-card-1">
+          <div class="cv-card-bar" style="width:70%;background:#e8c547"></div>
+          <div class="cv-card-bar" style="width:50%"></div>
+          <div class="cv-card-bar" style="width:85%"></div>
+          <div class="cv-card-bar" style="width:60%"></div>
+        </div>
+        <div class="cv-card cv-card-2">
+          <div class="cv-card-bar" style="width:65%;background:#6c63ff"></div>
+          <div class="cv-card-bar" style="width:80%"></div>
+          <div class="cv-card-bar" style="width:45%"></div>
+          <div class="cv-card-bar" style="width:70%"></div>
+        </div>
+        <div class="cv-card cv-card-3">
+          <div class="cv-card-bar" style="width:80%;background:#ff6b6b"></div>
+          <div class="cv-card-bar" style="width:55%"></div>
+          <div class="cv-card-bar" style="width:90%"></div>
+          <div class="cv-card-bar" style="width:40%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="section-label">Why CVCraft</div>
+      <h2 class="section-title">Everything you need to land the job</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>Beautiful Templates</h3>
+          <p>Professionally designed CV templates for every industry and style. Modern, classic, creative — pick yours.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Instant Preview</h3>
+          <p>See your CV update in real-time as you type. What you see is exactly what you get when you download.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-download"></i></div>
+          <h3>PDF Download</h3>
+          <p>Download your finished CV as a high-quality PDF, ready to send to employers or upload to job boards.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Auto-Save</h3>
+          <p>Your data is saved automatically in your account. Come back anytime and pick up where you left off.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Mobile Friendly</h3>
+          <p>Build and edit your CV on any device — desktop, tablet, or phone. Fully responsive design throughout.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <h3>Secure & Private</h3>
+          <p>Your personal data stays private. We never sell or share your information with third parties.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">Ready in 3 easy steps</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Create Your Account</h3>
+            <p>Sign up for free in seconds. No credit card required. Your data is saved securely in your account.</p>
+          </div>
+        </div>
+        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Fill In Your Details</h3>
+            <p>Enter your personal info, work experience, education, skills and more using our intuitive form.</p>
+          </div>
+        </div>
+        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Choose & Download</h3>
+            <p>Pick a template you love, preview your CV, and download it as a polished PDF instantly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cta-center">
+        <button class="btn-hero" onclick="showPage('register')">
+          Start Building Now <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">
+        <i class="fas fa-file-alt"></i> CV<span>Craft</span>
+      </div>
+      <p>© 2025 CVCraft. Built to get you hired.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ── LOGIN PAGE ── -->
+  <main id="page-login" class="page">
+    <div class="auth-wrapper">
+      <div class="auth-left">
+        <div class="auth-brand" onclick="showPage('home')">
+          <i class="fas fa-file-alt"></i> CV<span>Craft</span>
+        </div>
+        <h2 class="auth-title">Welcome back</h2>
+        <p class="auth-sub">Sign in to continue building your perfect CV.</p>
+        <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label>Email Address</label>
+            <div class="input-icon">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="loginEmail" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="loginPassword" placeholder="Your password" required />
+              <button type="button" class="toggle-pw" onclick="togglePw('loginPassword')"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+          <div id="loginError" class="auth-error hidden"></div>
+          <button type="submit" class="btn-auth">
+            <span>Sign In</span> <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+        <p class="auth-switch">
+          Don't have an account? <a href="#" onclick="showPage('register')">Sign up free</a>
+        </p>
+      </div>
+      <div class="auth-right">
+        <div class="auth-art">
+          <div class="art-card">
+            <div class="art-avatar"></div>
+            <div class="art-lines">
+              <div class="art-line" style="width:80%"></div>
+              <div class="art-line" style="width:55%"></div>
+              <div class="art-line short" style="width:90%"></div>
+              <div class="art-line short" style="width:70%"></div>
+              <div class="art-line short" style="width:60%"></div>
+            </div>
+          </div>
+          <div class="art-label">Your next opportunity awaits ✦</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── REGISTER PAGE ── -->
+  <main id="page-register" class="page">
+    <div class="auth-wrapper">
+      <div class="auth-left">
+        <div class="auth-brand" onclick="showPage('home')">
+          <i class="fas fa-file-alt"></i> CV<span>Craft</span>
+        </div>
+        <h2 class="auth-title">Create your account</h2>
+        <p class="auth-sub">Free forever. Start building your CV in minutes.</p>
+        <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <div class="input-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="regName" placeholder="John Doe" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <div class="input-icon">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="regEmail" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="regPassword" placeholder="Min 6 characters" required minlength="6" />
+              <button type="button" class="toggle-pw" onclick="togglePw('regPassword')"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+          <div id="regError" class="auth-error hidden"></div>
+          <button type="submit" class="btn-auth">
+            <span>Create Account</span> <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+        <p class="auth-switch">
+          Already have an account? <a href="#" onclick="showPage('login')">Sign in</a>
+        </p>
+      </div>
+      <div class="auth-right">
+        <div class="auth-art">
+          <div class="art-card">
+            <div class="art-avatar"></div>
+            <div class="art-lines">
+              <div class="art-line" style="width:75%"></div>
+              <div class="art-line" style="width:60%"></div>
+              <div class="art-line short" style="width:85%"></div>
+              <div class="art-line short" style="width:65%"></div>
+              <div class="art-line short" style="width:50%"></div>
+            </div>
+          </div>
+          <div class="art-label">Land your dream job ✦</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── CV FORM PAGE ── -->
+  <main id="page-form" class="page">
+    <div class="form-page-wrapper">
+      <div class="form-header">
+        <h1><i class="fas fa-pencil-alt"></i> Build Your CV</h1>
+        <p>Fill in your information below. All fields marked * are required.</p>
+      </div>
+
+      <div class="form-progress">
+        <div class="progress-step active" data-step="1"><span>1</span> Personal</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2"><span>2</span> Experience</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3"><span>3</span> Education</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="4"><span>4</span> Skills</div>
+      </div>
+
+      <form id="cvForm">
+
+        <!-- Step 1: Personal Info -->
+        <div class="form-step active" id="step1">
+          <h2 class="step-title"><i class="fas fa-user"></i> Personal Information</h2>
+          <div class="form-grid-2">
+            <div class="cv-field">
+              <label>First Name *</label>
+              <input type="text" id="firstName" placeholder="John" required />
+            </div>
+            <div class="cv-field">
+              <label>Last Name *</label>
+              <input type="text" id="lastName" placeholder="Doe" required />
+            </div>
+          </div>
+          <div class="cv-field">
+            <label>Professional Title *</label>
+            <input type="text" id="jobTitle" placeholder="e.g. Senior Software Engineer" required />
+          </div>
+          <div class="form-grid-2">
+            <div class="cv-field">
+              <label>Email *</label>
+              <input type="email" id="email" placeholder="john@example.com" required />
+            </div>
+            <div class="cv-field">
+              <label>Phone *</label>
+              <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required />
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="cv-field">
+              <label>Location</label>
+              <input type="text" id="location" placeholder="City, Country" />
+            </div>
+            <div class="cv-field">
+              <label>Website / LinkedIn</label>
+              <input type="url" id="website" placeholder="https://linkedin.com/in/..." />
+            </div>
+          </div>
+          <div class="cv-field">
+            <label>Professional Summary *</label>
+            <textarea id="summary" rows="4" placeholder="Write 2-4 sentences about your professional background, key skills, and career goals..." required></textarea>
+          </div>
+          <div class="step-nav">
+            <div></div>
+            <button type="button" class="btn-next" onclick="goStep(2)">Next: Experience <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 2: Experience -->
+        <div class="form-step" id="step2">
+          <h2 class="step-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+          <div id="experienceContainer"></div>
+          <button type="button" class="btn-add" onclick="addExperience()">
+            <i class="fas fa-plus"></i> Add Work Experience
+          </button>
+          <div class="step-nav">
+            <button type="button" class="btn-prev" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn-next" onclick="goStep(3)">Next: Education <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 3: Education -->
+        <div class="form-step" id="step3">
+          <h2 class="step-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+          <div id="educationContainer"></div>
+          <button type="button" class="btn-add" onclick="addEducation()">
+            <i class="fas fa-plus"></i> Add Education
+          </button>
+          <div class="step-nav">
+            <button type="button" class="btn-prev" onclick="goStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn-next" onclick="goStep(4)">Next: Skills <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 4: Skills & More -->
+        <div class="form-step" id="step4">
+          <h2 class="step-title"><i class="fas fa-star"></i> Skills & Additional Info</h2>
+          <div class="cv-field">
+            <label>Skills <small>(comma separated)</small></label>
+            <input type="text" id="skills" placeholder="e.g. JavaScript, React, Node.js, Python, Project Management" />
+          </div>
+          <div class="cv-field">
+            <label>Languages <small>(comma separated)</small></label>
+            <input type="text" id="languages" placeholder="e.g. English (Native), Spanish (Fluent)" />
+          </div>
+          <div class="cv-field">
+            <label>Certifications</label>
+            <textarea id="certifications" rows="3" placeholder="e.g. AWS Certified Developer (2023), Google Analytics Certified"></textarea>
+          </div>
+          <div class="cv-field">
+            <label>Projects / Achievements</label>
+            <textarea id="projects" rows="3" placeholder="Notable projects, awards, or achievements..."></textarea>
+          </div>
+          <div class="cv-field">
+            <label>Hobbies & Interests</label>
+            <input type="text" id="hobbies" placeholder="e.g. Photography, Hiking, Open Source" />
+          </div>
+          <div class="step-nav">
+            <button type="button" class="btn-prev" onclick="goStep(3)"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn-primary btn-build" onclick="saveAndChooseTemplate()">
+              <i class="fas fa-magic"></i> Build My CV
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- ── TEMPLATE SELECTOR PAGE ── -->
+  <main id="page-templates" class="page">
+    <div class="templates-wrapper">
+      <div class="templates-header">
+        <h1><i class="fas fa-palette"></i> Choose Your Template</h1>
+        <p>Select a design that best represents your professional style.</p>
+      </div>
+      <div class="templates-grid" id="templatesGrid"></div>
+    </div>
+  </main>
+
+  <!-- ── PREVIEW PAGE ── -->
+  <main id="page-preview" class="page">
+    <div class="preview-toolbar">
+      <button class="btn-outline" onclick="showPage('templates')">
+        <i class="fas fa-arrow-left"></i> Change Template
+      </button>
+      <h2 id="previewTemplateName"></h2>
+      <button class="btn-primary" onclick="downloadCV()">
+        <i class="fas fa-download"></i> Download PDF
+      </button>
+    </div>
+    <div class="preview-container">
+      <div id="cvPreview"></div>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
