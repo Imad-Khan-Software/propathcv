@@ -3,7 +3,7 @@
 
 ProPathCV allows users to create, customize, and export professional, ATS-friendly resumes instantly. Featuring isolated template sandboxing and secure local data persistence, users can seamlessly toggle styles and download high-quality PDFs without their data leaving their browser.
 
-Live Demo: [View Live Project](https://ecattest.netlify.app) *(Update this link once hosted!)*
+Live Demo: [View Live Project](https://ecattest.netlify.app) 
 
 ---
 
